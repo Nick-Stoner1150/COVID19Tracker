@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COVID19Tracker.Data
+namespace COVID19Tracker.Data.Department_Data
 {
     public class Department
     {

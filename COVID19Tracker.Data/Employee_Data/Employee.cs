@@ -1,4 +1,5 @@
-﻿using COVID19Tracker.Data.HealthStatus_Data;
+﻿using COVID19Tracker.Data.Department_Data;
+using COVID19Tracker.Data.HealthStatus_Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COVID19Tracker.Data.Employee
+namespace COVID19Tracker.Data.Employee_Data
 {
     public class Employee
     {
@@ -28,7 +29,7 @@ namespace COVID19Tracker.Data.Employee
         public virtual Department Department { get; set; }
 
         [ForeignKey(nameof(HealthStatus))]
-        public int healthStatusId { get; set; }
+        public int HealthStatusId { get; set; }
         public virtual HealthStatus HealthStatus { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
