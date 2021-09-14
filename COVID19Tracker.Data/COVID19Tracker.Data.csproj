@@ -88,7 +88,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee\Employee.cs" />
+    <Compile Include="Department_Data\Department.cs" />
+    <Compile Include="Employee_Data\Employee.cs" />
     <Compile Include="HealthStatus_Data\HealthStatus.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202109142159059_init.cs" />

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace COVID19Tracker.Data.Health_Status
+namespace COVID19Tracker.Data.HealthStatus_Data
 {
-    class HealthStatus
+    public class HealthStatus
     {
         public int HealthStatusId { get; set; }
         public bool Vaccinated { get; set; }
