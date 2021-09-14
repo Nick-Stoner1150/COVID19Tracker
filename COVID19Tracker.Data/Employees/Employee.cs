@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COVID19Tracker.Data.HealthStatus_Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,7 +27,7 @@ namespace COVID19Tracker.Data.Employee
         public int DepartmentId { get; set; }
         public virtual Department Department { get; set; }
 
-        [ForeignKey(nameof(HealthStatus)]
+        [ForeignKey(nameof(HealthStatus))]
         public int healthStatusId { get; set; }
         public virtual HealthStatus HealthStatus { get; set; }
 
