@@ -87,8 +87,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DepartmentModel\DepartmentCreate.cs" />
-    <Compile Include="DepartmentModel\DepartmentEdit.cs" />
+    <Compile Include="Department_Models\DepartmentCreate.cs" />
+    <Compile Include="Department_Models\DepartmentEdit.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusCreate.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusDetail.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusEdit.cs" />
