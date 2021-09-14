@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employee\Employee.cs" />
-    <Compile Include="HealthStatuses\HealthStatus.cs" />
+    <Compile Include="HealthStatus_Data\HealthStatus.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202109142159059_init.cs" />
     <Compile Include="Migrations\202109142159059_init.Designer.cs">
