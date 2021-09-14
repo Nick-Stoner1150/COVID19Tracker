@@ -89,11 +89,21 @@
   <ItemGroup>
     <Compile Include="DepartmentModel\DepartmentCreate.cs" />
     <Compile Include="DepartmentModel\DepartmentEdit.cs" />
+    <Compile Include="HealthStatus_Models\HealthStatusCreate.cs" />
+    <Compile Include="HealthStatus_Models\HealthStatusDetail.cs" />
+    <Compile Include="HealthStatus_Models\HealthStatusEdit.cs" />
+    <Compile Include="HealthStatus_Models\HealthStatusItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COVID19Tracker.Data\COVID19Tracker.Data.csproj">
+      <Project>{fe463d4c-6621-4fed-b54a-ef92e011cbbd}</Project>
+      <Name>COVID19Tracker.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
