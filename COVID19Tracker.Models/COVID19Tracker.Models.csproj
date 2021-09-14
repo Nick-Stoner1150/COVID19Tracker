@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="Department_Models\DepartmentCreate.cs" />
     <Compile Include="Department_Models\DepartmentEdit.cs" />
+    <Compile Include="Employee_Models\EmployeeCreate.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusCreate.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusDetail.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusEdit.cs" />
