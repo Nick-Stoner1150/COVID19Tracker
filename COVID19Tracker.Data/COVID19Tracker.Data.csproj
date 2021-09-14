@@ -84,7 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee\Employee.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="Employees\Employee.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202109142159059_init.cs" />
     <Compile Include="Migrations\202109142159059_init.Designer.cs">
