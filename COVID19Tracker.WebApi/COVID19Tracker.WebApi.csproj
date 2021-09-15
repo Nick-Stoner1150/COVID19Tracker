@@ -312,10 +312,6 @@
     <Content Include="Scripts\jquery-3.6.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\COVID19Tracker.Data\COVID19Tracker.Data.csproj">
-      <Project>{fe463d4c-6621-4fed-b54a-ef92e011cbbd}</Project>
-      <Name>COVID19Tracker.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\COVID19Tracker.Models\COVID19Tracker.Models.csproj">
       <Project>{6aa7d3ee-742a-435c-9284-138ab9c91580}</Project>
       <Name>COVID19Tracker.Models</Name>
