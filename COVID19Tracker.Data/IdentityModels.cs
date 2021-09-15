@@ -3,6 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using COVID19Tracker.Data.Department_Data;
+using COVID19Tracker.Data.Employee_Data;
+using COVID19Tracker.Data.HealthStatus_Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -32,6 +35,10 @@ namespace COVID19Tracker.Data
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<HealthStatus> HealthStatuses { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

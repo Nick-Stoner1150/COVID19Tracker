@@ -87,7 +87,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DepartmentServices\DepartmentService.cs" />
+    <Compile Include="Department_Services\DepartmentService.cs" />
+    <Compile Include="Employee_Services\EmployeeServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
