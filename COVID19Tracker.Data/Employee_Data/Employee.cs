@@ -27,15 +27,13 @@ namespace COVID19Tracker.Data.Employee_Data
         [ForeignKey(nameof(Department))]
         public int DepartmentId { get; set; }
         public virtual Department Department { get; set; }
+        
 
         [ForeignKey(nameof(HealthStatus))]
         public int HealthStatusId { get; set; }
         public virtual HealthStatus HealthStatus { get; set; }
-
         public DateTimeOffset CreatedDate { get; set; }
         public DateTimeOffset? ModifiedDate { get; set; }
-
-
 
     }
 }

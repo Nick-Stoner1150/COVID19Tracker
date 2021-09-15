@@ -48,15 +48,6 @@ namespace COVID19Tracker.WebApi.Controllers
             return Ok();
         }
 
-        
-
-
-
-
-
-
-
-
     }
 }
     

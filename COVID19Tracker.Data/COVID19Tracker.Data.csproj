@@ -96,6 +96,18 @@
     <Compile Include="Migrations\202109142159059_init.Designer.cs">
       <DependentUpon>202109142159059_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109151501358_second.cs" />
+    <Compile Include="Migrations\202109151501358_second.designer.cs">
+      <DependentUpon>202109151501358_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109151557420_addedBooleanToEmployee.cs" />
+    <Compile Include="Migrations\202109151557420_addedBooleanToEmployee.designer.cs">
+      <DependentUpon>202109151557420_addedBooleanToEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109151626007_removedBooleanToEmployee.cs" />
+    <Compile Include="Migrations\202109151626007_removedBooleanToEmployee.designer.cs">
+      <DependentUpon>202109151626007_removedBooleanToEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +118,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202109142159059_init.resx">
       <DependentUpon>202109142159059_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109151501358_second.resx">
+      <DependentUpon>202109151501358_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109151557420_addedBooleanToEmployee.resx">
+      <DependentUpon>202109151557420_addedBooleanToEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109151626007_removedBooleanToEmployee.resx">
+      <DependentUpon>202109151626007_removedBooleanToEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
