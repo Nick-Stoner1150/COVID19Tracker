@@ -56,4 +56,4 @@ namespace COVID19Tracker.Services.DepartmentServices
 
 }
     
-}
+

@@ -1,5 +1,6 @@
 ﻿using COVID19Tracker.Models.DepartmentModel;
 using COVID19Tracker.Services.DepartmentServices;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace COVID19Tracker.WebApi.Controllers
         private DepartmentService CreateDepartmentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var teamService = new DepartmentService(userId);
+            var departmentService = new DepartmentService(userId);
             return departmentService;
         }
 

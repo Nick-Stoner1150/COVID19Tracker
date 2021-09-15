@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COVID19Tracker.Data.Employee_Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,5 +20,7 @@ namespace COVID19Tracker.Data.Department_Data
         public DateTime LastCleanDate { get; set; }
 
         public int WeeklyTests { get; set; }
+
+        public virtual List<Employee> Employees { get; set; }
     }
 }
