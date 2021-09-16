@@ -96,7 +96,7 @@
     <Compile Include="HealthStatus_Models\HealthStatusCreate.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusDetail.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusEdit.cs" />
-    <Compile Include="HealthStatus_Models\HealthStatusItem.cs" />
+    <Compile Include="HealthStatus_Models\HealthStatusListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
