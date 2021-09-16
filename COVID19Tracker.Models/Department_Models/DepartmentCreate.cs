@@ -13,9 +13,7 @@ namespace COVID19Tracker.Models.DepartmentModel
         [Required]
         public string DepartmentName { get; set; }
 
-        public string DepartmentLocation { get; set; }
-
-        public DateTime LastCleanDate { get; set; }
+        public string DepartmentLocation { get; set; }                
         
     }
 }

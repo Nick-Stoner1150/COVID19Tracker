@@ -18,8 +18,7 @@ namespace COVID19Tracker.Services.DepartmentServices
         {
             var entity = new Department
             {
-                DepartmentName = department.DepartmentName,
-                LastCleanDate = DateTime.Now,
+                DepartmentName = department.DepartmentName,                
                 DepartmentLocation = department.DepartmentLocation
             };
 

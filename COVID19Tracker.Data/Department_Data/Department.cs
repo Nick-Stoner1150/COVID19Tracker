@@ -17,7 +17,7 @@ namespace COVID19Tracker.Data.Department_Data
 
         public string DepartmentLocation { get; set; }
 
-        public DateTime LastCleanDate { get; set; }
+        public DateTime? LastCleanDate { get; set; }
 
         public int WeeklyTests { get; set; }
 
