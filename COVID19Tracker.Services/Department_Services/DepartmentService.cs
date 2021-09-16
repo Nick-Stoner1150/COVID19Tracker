@@ -1,8 +1,10 @@
 ﻿using COVID19Tracker.Data;
 using COVID19Tracker.Data.Department_Data;
+using COVID19Tracker.Models.Department_Models;
 using COVID19Tracker.Models.DepartmentModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,46 +13,78 @@ namespace COVID19Tracker.Services.DepartmentServices
 {
     public class DepartmentService
     {
-        private readonly Guid _userId;
 
-        public DepartmentService(Guid userId)
+        public async Task<bool> Post(DepartmentCreate department)
         {
-            _userId = userId;
-        }
+            var entity = new Department
+            {
+                DepartmentName = department.DepartmentName,                
+                DepartmentLocation = department.DepartmentLocation
+            };
 
-        public bool CreateDepartment(DepartmentCreate model)
-        {
-            var entity =
-                new Department
-                {
-                    DepartmentId = model.DepartmentId,
-                    DepartmentName = model.DepartmentName,
-                };
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Departments.Add(entity);
-                return ctx.SaveChanges() == 1;
+                return await ctx.SaveChangesAsync() > 0;
             }
-
-
         }
-
-        public bool UpdateDepartment(DepartmentEdit model)
+        public async Task<IEnumerable<DepartmentList>> Get()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var query =
+                    await
                     ctx
-                    .Departments
-                    .Single(e => e.DepartmentId == model.DepartmentId);
+                    .Departments                    
+                    .Select(d => new DepartmentList
 
-                entity.DepartmentName = model.DepartmentName;
+                    {                        
+                        DepartmentName = d.DepartmentName,
+                        DepartmentLocation = d.DepartmentLocation
 
-                return ctx.SaveChanges() == 1;
+                    }).ToListAsync();
+
+                return query;
             }
         }
 
-        
+        public async Task<bool> Put(DepartmentEdit model, string name)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = await ctx.Departments.FindAsync(name);
+                if (entity is null)
+                {
+                    return false;
+                }
+
+                entity.DepartmentName = model.DepartmentName;
+                entity.DepartmentLocation = model.DepartmentLocation;
+
+
+
+
+
+
+                return await ctx.SaveChangesAsync() == 1;
+            }
+        }
+
+        public async Task<bool> Delete(string name)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = await ctx.Departments.FindAsync(name);
+                if (entity is null)
+                {
+                    return false;
+                }
+                ctx.Departments.Remove(entity);
+                return await ctx.SaveChangesAsync() == 1;
+            }
+        }
+
+
 
     }
 

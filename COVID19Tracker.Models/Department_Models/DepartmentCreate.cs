@@ -9,10 +9,11 @@ namespace COVID19Tracker.Models.DepartmentModel
 {
     public class DepartmentCreate
     {
-        [Required]
-        public int DepartmentId { get; set; }
-
+        
         [Required]
         public string DepartmentName { get; set; }
+
+        public string DepartmentLocation { get; set; }                
+        
     }
 }

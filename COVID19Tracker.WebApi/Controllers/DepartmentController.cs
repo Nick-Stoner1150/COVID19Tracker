@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace COVID19Tracker.WebApi.Controllers
@@ -14,38 +15,62 @@ namespace COVID19Tracker.WebApi.Controllers
     {
         private DepartmentService CreateDepartmentService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var departmentService = new DepartmentService(userId);
+
+            var departmentService = new DepartmentService();
             return departmentService;
         }
 
 
-
-        public IHttpActionResult Post(DepartmentCreate department)
+        [HttpPost]
+        public async Task<IHttpActionResult> Post([FromBody] DepartmentCreate department)
         {
-            if (!ModelState.IsValid)
+            if (department is null || !ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
+            }
 
-            var service = CreateDepartmentService();
-
-            if (!service.CreateDepartment(department))
-                return InternalServerError();
-
-            return Ok();
+            var svc = CreateDepartmentService();
+            var success = await svc.Post(department);
+            if (success)
+            {
+                return Ok();
+            }
+            return InternalServerError();
         }
 
 
-        public IHttpActionResult Put(DepartmentEdit department)
+
+
+
+        [HttpPut]
+        public async Task<IHttpActionResult> Put([FromBody] DepartmentEdit department, [FromUri] string name)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateDepartmentService();
+            var success = await service.Put(department, name);
 
-            if (!service.UpdateDepartment(department))
-                return InternalServerError();
+            if (success)
+            {
+                return Ok();
+            }
+                
 
-            return Ok();
+            return InternalServerError();
+        }
+
+        [HttpDelete]
+        public async Task<IHttpActionResult> Delete([FromUri] string name)
+        {
+            
+            var svc = CreateDepartmentService();
+            var success = await svc.Delete(name);
+            if (success)
+            {
+                return Ok();
+            }
+            return InternalServerError();
         }
 
     }

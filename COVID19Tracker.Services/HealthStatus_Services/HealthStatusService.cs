@@ -15,7 +15,6 @@ namespace COVID19Tracker.Services.HealthStatus_Services
         {
             var entity = new HealthStatus
             {
-                HealthStatusId = healthStatus.HealthStatusId,
                 Vaccinated = healthStatus.Vaccinated,
                 HasCovid = healthStatus.HasCovid,
                 Hospitalized = healthStatus.Hospitalized,

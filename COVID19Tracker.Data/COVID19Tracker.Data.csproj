@@ -92,21 +92,9 @@
     <Compile Include="Employee_Data\Employee.cs" />
     <Compile Include="HealthStatus_Data\HealthStatus.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202109142159059_init.cs" />
-    <Compile Include="Migrations\202109142159059_init.Designer.cs">
-      <DependentUpon>202109142159059_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109151501358_second.cs" />
-    <Compile Include="Migrations\202109151501358_second.designer.cs">
-      <DependentUpon>202109151501358_second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109151557420_addedBooleanToEmployee.cs" />
-    <Compile Include="Migrations\202109151557420_addedBooleanToEmployee.designer.cs">
-      <DependentUpon>202109151557420_addedBooleanToEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109151626007_removedBooleanToEmployee.cs" />
-    <Compile Include="Migrations\202109151626007_removedBooleanToEmployee.designer.cs">
-      <DependentUpon>202109151626007_removedBooleanToEmployee.cs</DependentUpon>
+    <Compile Include="Migrations\202109160300523_addDepartment.cs" />
+    <Compile Include="Migrations\202109160300523_addDepartment.designer.cs">
+      <DependentUpon>202109160300523_addDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202109162156180_updatedData.cs" />
     <Compile Include="Migrations\202109162156180_updatedData.designer.cs">
@@ -128,17 +116,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109142159059_init.resx">
-      <DependentUpon>202109142159059_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109151501358_second.resx">
-      <DependentUpon>202109151501358_second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109151557420_addedBooleanToEmployee.resx">
-      <DependentUpon>202109151557420_addedBooleanToEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109151626007_removedBooleanToEmployee.resx">
-      <DependentUpon>202109151626007_removedBooleanToEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109160300523_addDepartment.resx">
+      <DependentUpon>202109160300523_addDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109162156180_updatedData.resx">
       <DependentUpon>202109162156180_updatedData.cs</DependentUpon>
