@@ -39,7 +39,6 @@ namespace COVID19Tracker.Services.HealthStatus_Services
                     return false;
                 }
 
-                oldHealth.HealthStatusId = healthStatus.HealthStatusId;
                 oldHealth.Vaccinated = healthStatus.Vaccinated;
                 oldHealth.HasCovid = healthStatus.HasCovid;
                 oldHealth.Hospitalized = healthStatus.Hospitalized;
