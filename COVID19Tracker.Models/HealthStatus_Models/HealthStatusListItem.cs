@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COVID19Tracker.Models.HealthStatus_Models
 {
-    public class HealthStatusItem
+    public class HealthStatusListItem
     {
         public int HealthStatusId { get; set; }
     }
