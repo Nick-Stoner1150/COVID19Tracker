@@ -211,6 +211,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HealthStatus_Controllers\HealthStatusController.cs" />
+    <Compile Include="Controllers\Employee_Controller\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -313,7 +314,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\COVID19Tracker.Data\COVID19Tracker.Data.csproj">
-      <Project>{fe463d4c-6621-4fed-b54a-ef92e011cbbd}</Project>
+      <Project>{FE463D4C-6621-4FED-B54A-EF92E011CBBD}</Project>
       <Name>COVID19Tracker.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\COVID19Tracker.Models\COVID19Tracker.Models.csproj">

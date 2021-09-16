@@ -8,5 +8,8 @@ namespace COVID19Tracker.Models.DepartmentModel
 {
     public class DepartmentEdit
     {
+        public int DepartmentId { get; set; }
+
+        public string DepartmentName { get; set; }
     }
 }
