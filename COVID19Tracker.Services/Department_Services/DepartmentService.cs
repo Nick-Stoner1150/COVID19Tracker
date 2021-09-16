@@ -21,7 +21,7 @@ namespace COVID19Tracker.Services.DepartmentServices
         public bool CreateDepartment(DepartmentCreate model)
         {
             var entity =
-                new Department()
+                new Department
                 {
                     DepartmentId = model.DepartmentId,
                     DepartmentName = model.DepartmentName,
