@@ -8,5 +8,6 @@ namespace COVID19Tracker.Models.HealthStatus_Models
 {
     public class HealthStatusItem
     {
+        public int HealthStatusId { get; set; }
     }
 }
