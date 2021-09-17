@@ -95,6 +95,7 @@
     <Compile Include="Employee_Models\EmployeeDetail.cs" />
     <Compile Include="Employee_Models\EmployeeEdit.cs" />
     <Compile Include="Employee_Models\EmployeeListItem.cs" />
+    <Compile Include="Employee_Models\Employee_Paginations\EmployeeParameters.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusCreate.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusDetail.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusEdit.cs" />

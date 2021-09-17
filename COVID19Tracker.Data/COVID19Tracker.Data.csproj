@@ -96,6 +96,18 @@
     <Compile Include="Migrations\202109162312186_AddDepartment.designer.cs">
       <DependentUpon>202109162312186_AddDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109162156180_updatedData.cs" />
+    <Compile Include="Migrations\202109162156180_updatedData.designer.cs">
+      <DependentUpon>202109162156180_updatedData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109162207016_updatedData1.cs" />
+    <Compile Include="Migrations\202109162207016_updatedData1.designer.cs">
+      <DependentUpon>202109162207016_updatedData1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109162239019_updatedDepartmentList.cs" />
+    <Compile Include="Migrations\202109162239019_updatedDepartmentList.designer.cs">
+      <DependentUpon>202109162239019_updatedDepartmentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +118,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202109162312186_AddDepartment.resx">
       <DependentUpon>202109162312186_AddDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109162156180_updatedData.resx">
+      <DependentUpon>202109162156180_updatedData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109162207016_updatedData1.resx">
+      <DependentUpon>202109162207016_updatedData1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109162239019_updatedDepartmentList.resx">
+      <DependentUpon>202109162239019_updatedDepartmentList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

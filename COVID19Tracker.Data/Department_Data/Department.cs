@@ -21,17 +21,6 @@ namespace COVID19Tracker.Data.Department_Data
 
         public int WeeklyTests { get; set; }
 
-        public virtual List<Employee> Employees { get; set; } = new List<Employee>();
-
-        public Department()
-        {
-
-        }
-
-        public Department(string departmentName, List<Employee> employees)
-        {
-            DepartmentName = departmentName;
-            Employees = employees;
-        }
+        public virtual List<Employee> Employees { get; set; }
     }
 }

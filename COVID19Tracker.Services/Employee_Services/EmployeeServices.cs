@@ -1,6 +1,7 @@
 ﻿using COVID19Tracker.Data;
 using COVID19Tracker.Data.Employee_Data;
 using COVID19Tracker.Models.Employee_Models;
+using COVID19Tracker.Models.Employee_Models.Employee_Paginations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -31,14 +32,14 @@ namespace COVID19Tracker.Services.Employee_Services
                 if (department is null || healthStatus is null)
                     return false;
 
-                entity.Department.Employees.Add(entity);
+                // entity.Department.EmployeeList.Add(entity);
 
                 ctx.Employees.Add(entity);
                 return await ctx.SaveChangesAsync() > 0;
             }
         }
 
-        public async Task<IEnumerable<EmployeeListItem>> Get()
+        public async Task<IEnumerable<EmployeeListItem>> GetAll(int pageNumber, int pageSize)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -55,7 +56,11 @@ namespace COVID19Tracker.Services.Employee_Services
                         DepartmentName = e.Department.DepartmentName,
                         DepartmentId = e.DepartmentId,
                         HealthStatusId = e.HealthStatusId
-                    }).ToListAsync();
+                    })
+                    .OrderBy(e => e.LastName)
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync();
 
                 return query;
             }
@@ -92,6 +97,28 @@ namespace COVID19Tracker.Services.Employee_Services
                     CreatedDate = employee.CreatedDate,
                     ModifiedDate = employee.ModifiedDate
                 };
+            }
+        }
+
+        public async Task<IEnumerable<EmployeeListItem>> GetVaccinatedByDepartment(int departmentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var employees =
+                    await
+                    ctx
+                    .Employees
+                    .Where(e => e.HealthStatus.Vaccinated && e.DepartmentId == departmentId)
+                    .Select(e => new EmployeeListItem
+                    {
+                        FirstName = e.FirstName,
+                        LastName = e.LastName,
+                        DepartmentId = e.DepartmentId,
+                        DepartmentName = e.Department.DepartmentName,
+                        HealthStatusId = e.HealthStatusId
+                    }).ToListAsync();
+
+                return employees;
             }
         }
 
