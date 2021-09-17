@@ -38,7 +38,7 @@ namespace COVID19Tracker.WebApi.Controllers.Employee_Controller
         public async Task<IHttpActionResult> GetAll([FromUri] EmployeeParameters employeeParameters)
         {
             var svc = CreateEmployeeService();
-            var employees = await svc.GetAll(employeeParameters);
+            var employees = await svc.GetAll(employeeParameters.PageNumber, employeeParameters.PageSize);
             return Ok(employees);
         }
 
