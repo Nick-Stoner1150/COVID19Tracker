@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace COVID19Tracker.Models.Employee_Models.Employee_Paginations
         const int maxPageSize = 50;
         public int PageNumber { get; set; } = 1;
         private int _pageSize = 10;
-
+       
         public int PageSize
         {
             get

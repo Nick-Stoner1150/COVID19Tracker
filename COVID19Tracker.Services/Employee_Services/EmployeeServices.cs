@@ -39,7 +39,7 @@ namespace COVID19Tracker.Services.Employee_Services
             }
         }
 
-        public async Task<IEnumerable<EmployeeListItem>> GetAll(EmployeeParameters employeeParameters)
+        public async Task<IEnumerable<EmployeeListItem>> GetAll(int pageNumber, int pageSize)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -57,8 +57,9 @@ namespace COVID19Tracker.Services.Employee_Services
                         DepartmentId = e.DepartmentId,
                         HealthStatusId = e.HealthStatusId
                     })
-                    .Skip((employeeParameters.PageNumber - 1) * employeeParameters.PageSize)
-                    .Take(employeeParameters.PageSize)
+                    .OrderBy(e => e.LastName)
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
                     .ToListAsync();
 
                 return query;
@@ -110,7 +111,6 @@ namespace COVID19Tracker.Services.Employee_Services
                     .Where(e => e.HealthStatus.Vaccinated && e.DepartmentId == departmentId)
                     .Select(e => new EmployeeListItem
                     {
-                        ID = e.ID,
                         FirstName = e.FirstName,
                         LastName = e.LastName,
                         DepartmentId = e.DepartmentId,
