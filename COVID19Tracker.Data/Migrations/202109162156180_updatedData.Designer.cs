@@ -7,13 +7,13 @@ namespace COVID19Tracker.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class second : IMigrationMetadata
+    public sealed partial class updatedData : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(second));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedData));
         
         string IMigrationMetadata.Id
         {
-            get { return "202109151501358_second"; }
+            get { return "202109162156180_updatedData"; }
         }
         
         string IMigrationMetadata.Source

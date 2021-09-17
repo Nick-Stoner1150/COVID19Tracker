@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class removedBooleanToEmployee : DbMigration
+    public partial class updatedDepartmentList : DbMigration
     {
         public override void Up()
         {

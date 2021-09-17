@@ -1,4 +1,5 @@
 ﻿using COVID19Tracker.Models.Employee_Models;
+using COVID19Tracker.Models.Employee_Models.Employee_Paginations;
 using COVID19Tracker.Services.Employee_Services;
 using System;
 using System.Collections.Generic;
@@ -34,10 +35,10 @@ namespace COVID19Tracker.WebApi.Controllers.Employee_Controller
         }
 
         [HttpGet]
-        public async Task<IHttpActionResult> Get()
+        public async Task<IHttpActionResult> GetAll([FromUri] EmployeeParameters employeeParameters)
         {
             var svc = CreateEmployeeService();
-            var employees = await svc.Get();
+            var employees = await svc.GetAll(employeeParameters.PageNumber, employeeParameters.PageSize);
             return Ok(employees);
         }
 
@@ -47,6 +48,14 @@ namespace COVID19Tracker.WebApi.Controllers.Employee_Controller
             var svc = CreateEmployeeService();
             var employee = await svc.Get(id);
             return Ok(employee);
+        }
+
+        [HttpGet]
+        public async Task<IHttpActionResult> GetVaccinatedByDepartmentId([FromUri] int departmentId)
+        {
+            var svc = CreateEmployeeService();
+            var employees = await svc.GetVaccinatedByDepartment(departmentId);
+            return Ok(employees);
         }
 
         [HttpPut]

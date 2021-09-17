@@ -7,13 +7,13 @@ namespace COVID19Tracker.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class addedBooleanToEmployee : IMigrationMetadata
+    public sealed partial class updatedDepartmentList : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedBooleanToEmployee));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedDepartmentList));
         
         string IMigrationMetadata.Id
         {
-            get { return "202109151557420_addedBooleanToEmployee"; }
+            get { return "202109162239019_updatedDepartmentList"; }
         }
         
         string IMigrationMetadata.Source
