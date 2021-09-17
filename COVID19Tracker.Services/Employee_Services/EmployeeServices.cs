@@ -1,7 +1,6 @@
 ﻿using COVID19Tracker.Data;
 using COVID19Tracker.Data.Employee_Data;
 using COVID19Tracker.Models.Employee_Models;
-using COVID19Tracker.Models.Employee_Models.Employee_Paginations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
