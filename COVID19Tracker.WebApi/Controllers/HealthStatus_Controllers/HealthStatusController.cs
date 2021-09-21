@@ -55,5 +55,33 @@ namespace COVID19Tracker.WebApi.Controllers.HealthStatus_Controllers
             }
             return InternalServerError();
         }
+
+        [HttpGet]
+        public async Task<IHttpActionResult> Get(int id)
+        {
+            if (id<1)
+            {
+                return BadRequest();
+            }
+            var svc = HealthStatusService();
+            var healthStatus = await svc.Get(id);
+            return Ok(healthStatus);
+        }
+
+        [HttpDelete]
+        public async Task<IHttpActionResult> Delete(int id)
+        {
+            if (id<1)
+            {
+                return BadRequest("Whoops! that's not supposed to happen.");
+            }
+            var svc = HealthStatusService();
+            var success = await svc.Delete(id);
+            if (success)
+            {
+                return Ok("Annnnd it's gone.");
+            }
+            return InternalServerError();
+        }
     }
 }
