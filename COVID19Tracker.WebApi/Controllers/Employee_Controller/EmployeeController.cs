@@ -1,5 +1,5 @@
 ﻿using COVID19Tracker.Models.Employee_Models;
-using COVID19Tracker.Models.Employee_Models.Employee_Paginations;
+using COVID19Tracker.Models.Pagination_Models;
 using COVID19Tracker.Services.Employee_Services;
 using System;
 using System.Collections.Generic;
@@ -35,10 +35,10 @@ namespace COVID19Tracker.WebApi.Controllers.Employee_Controller
         }
 
         [HttpGet]
-        public async Task<IHttpActionResult> GetAll([FromUri] EmployeeParameters employeeParameters)
+        public async Task<IHttpActionResult> GetAll([FromUri] PaginationParameters parameters)
         {
             var svc = CreateEmployeeService();
-            var employees = await svc.GetAll(employeeParameters.PageNumber, employeeParameters.PageSize);
+            var employees = await svc.GetAll(parameters.PageNumber, parameters.PageSize);
             return Ok(employees);
         }
 
