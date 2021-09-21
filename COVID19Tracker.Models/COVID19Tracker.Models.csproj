@@ -99,6 +99,8 @@
     <Compile Include="HealthStatus_Models\HealthStatusDetail.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusEdit.cs" />
     <Compile Include="HealthStatus_Models\HealthStatusListItem.cs" />
+    <Compile Include="Pagination_Models\PagedList.cs" />
+    <Compile Include="Pagination_Models\PaginationParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
