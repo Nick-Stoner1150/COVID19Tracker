@@ -65,7 +65,6 @@ namespace COVID19Tracker.Services.HealthStatus_Services
                 }
                 return new HealthStatusDetail
                 {
-                    HealthStatusId = healthStatus.HealthStatusId,
                     Vaccinated = healthStatus.Vaccinated,
                     HasCovid = healthStatus.HasCovid,
                     Hospitalized = healthStatus.Hospitalized,

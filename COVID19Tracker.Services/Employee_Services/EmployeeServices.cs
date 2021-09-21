@@ -39,7 +39,7 @@ namespace COVID19Tracker.Services.Employee_Services
             }
         }
 
-        public async Task<PagedList<EmployeeListItem>> GetAll(int pageNumber, int pageSize)
+        public async Task<IEnumerable<EmployeeListItem>> GetAll(int pageNumber, int pageSize)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -62,7 +62,7 @@ namespace COVID19Tracker.Services.Employee_Services
                     .Take(pageSize)
                     .ToListAsync();
 
-                return PagedList<T>.ToPagedList(query, ;
+                return query;
             }
         }
 
