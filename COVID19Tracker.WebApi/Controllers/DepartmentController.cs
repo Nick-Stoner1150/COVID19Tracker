@@ -16,7 +16,7 @@ namespace COVID19Tracker.WebApi.Controllers
     {
         private DepartmentService CreateDepartmentService()
         {
-            
+
             var departmentService = new DepartmentService();
             return departmentService;
         }
@@ -41,7 +41,7 @@ namespace COVID19Tracker.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IHttpActionResult> Get()
+        public async Task<IHttpActionResult> Get([FromUri] int id)
         {
             var entity = CreateDepartmentService();
             var depts = await entity.Get();
