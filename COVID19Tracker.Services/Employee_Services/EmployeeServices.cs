@@ -1,7 +1,7 @@
 ﻿using COVID19Tracker.Data;
 using COVID19Tracker.Data.Employee_Data;
 using COVID19Tracker.Models.Employee_Models;
-using COVID19Tracker.Models.Employee_Models.Employee_Paginations;
+using COVID19Tracker.Models.Pagination_Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -39,7 +39,7 @@ namespace COVID19Tracker.Services.Employee_Services
             }
         }
 
-        public async Task<IEnumerable<EmployeeListItem>> GetAll(int pageNumber, int pageSize)
+        public async Task<PagedList<EmployeeListItem>> GetAll(int pageNumber, int pageSize)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -62,7 +62,7 @@ namespace COVID19Tracker.Services.Employee_Services
                     .Take(pageSize)
                     .ToListAsync();
 
-                return query;
+                return PagedList<T>.ToPagedList(query, ;
             }
         }
 
