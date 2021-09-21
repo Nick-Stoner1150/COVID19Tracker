@@ -3,6 +3,7 @@ using COVID19Tracker.Data.HealthStatus_Data;
 using COVID19Tracker.Models.HealthStatus_Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,6 @@ namespace COVID19Tracker.Services.HealthStatus_Services
                     return false;
                 }
 
-                oldHealth.HealthStatusId = healthStatus.HealthStatusId;
                 oldHealth.Vaccinated = healthStatus.Vaccinated;
                 oldHealth.HasCovid = healthStatus.HasCovid;
                 oldHealth.Hospitalized = healthStatus.Hospitalized;
@@ -47,6 +47,45 @@ namespace COVID19Tracker.Services.HealthStatus_Services
                 oldHealth.QuarantinedDate = healthStatus.QuarantinedDate;
                 oldHealth.LastTestedDate = healthStatus.LastTestedDate;
 
+                return await ctx.SaveChangesAsync() > 0;
+            }
+        }
+        public async Task<HealthStatusDetail> Get(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var healthStatus =
+                    await
+                    ctx
+                    .HealthStatuses
+                    .SingleOrDefaultAsync(h => h.HealthStatusId == id);
+                if (healthStatus is null)
+                {
+                    return null;
+                }
+                return new HealthStatusDetail
+                {
+                    HealthStatusId = healthStatus.HealthStatusId,
+                    Vaccinated = healthStatus.Vaccinated,
+                    HasCovid = healthStatus.HasCovid,
+                    Hospitalized = healthStatus.Hospitalized,
+                    Comorbidities = healthStatus.Comorbidities,
+                    QuarantinedDate = healthStatus.QuarantinedDate,
+                    LastTestedDate = healthStatus.LastTestedDate
+                };
+            }
+        }
+        public async Task<bool> Delete(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var oldHealth = await ctx.HealthStatuses.FindAsync(id);
+
+                if (oldHealth is null)
+                {
+                    return false;
+                }
+                ctx.HealthStatuses.Remove(oldHealth);
                 return await ctx.SaveChangesAsync() > 0;
             }
         }
