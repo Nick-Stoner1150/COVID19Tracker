@@ -92,9 +92,9 @@
     <Compile Include="Employee_Data\Employee.cs" />
     <Compile Include="HealthStatus_Data\HealthStatus.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202109160300523_addDepartment.cs" />
-    <Compile Include="Migrations\202109160300523_addDepartment.designer.cs">
-      <DependentUpon>202109160300523_addDepartment.cs</DependentUpon>
+    <Compile Include="Migrations\202109162312186_AddDepartment.cs" />
+    <Compile Include="Migrations\202109162312186_AddDepartment.designer.cs">
+      <DependentUpon>202109162312186_AddDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202109162156180_updatedData.cs" />
     <Compile Include="Migrations\202109162156180_updatedData.designer.cs">
@@ -116,8 +116,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109160300523_addDepartment.resx">
-      <DependentUpon>202109160300523_addDepartment.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109162312186_AddDepartment.resx">
+      <DependentUpon>202109162312186_AddDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109162156180_updatedData.resx">
       <DependentUpon>202109162156180_updatedData.cs</DependentUpon>

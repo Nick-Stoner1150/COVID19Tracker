@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="Department_Models\DepartmentCreate.cs" />
     <Compile Include="Department_Models\DepartmentEdit.cs" />
+    <Compile Include="Department_Models\DepartmentEmployeeList.cs" />
     <Compile Include="Department_Models\DepartmentList.cs" />
     <Compile Include="Employee_Models\EmployeeCreate.cs" />
     <Compile Include="Employee_Models\EmployeeDetail.cs" />
