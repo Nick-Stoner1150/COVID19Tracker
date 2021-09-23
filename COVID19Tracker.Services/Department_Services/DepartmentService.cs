@@ -48,6 +48,26 @@ namespace COVID19Tracker.Services.DepartmentServices
             }
         }
 
+        public async Task<IEnumerable<DepartmentEmployeeList>> GetDeptEmploy()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    await
+                    ctx
+                    .Departments
+                    .Select(d => new DepartmentEmployeeList
+
+                    {
+                        DepartmentName = d.DepartmentName,
+                        Employees = d.Employees
+
+                    }).ToListAsync();
+
+                return query;
+            }
+        }
+
         public async Task<bool> Put(DepartmentEdit model, string name)
         {
             using (var ctx = new ApplicationDbContext())

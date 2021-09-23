@@ -20,6 +20,7 @@ namespace COVID19Tracker.Data.Department_Data
         public DateTime? LastCleanDate { get; set; }
 
         public int WeeklyTests { get; set; }
-        public List<Employee> EmployeeList { get; set; } = new List<Employee>();
+
+        public virtual List<Employee> Employees { get; set; }
     }
 }
