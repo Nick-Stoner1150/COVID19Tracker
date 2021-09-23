@@ -12,9 +12,8 @@ namespace COVID19Tracker.UI.Services
 
         Task Create<T>(string route, T content);
         Task<T> GetById<T>(string route, int id);
-
         Task<IEnumerable<T>> GetAll<T>(string route);
-
+        Task UpdateEntity<T>(string route, T content, int id);
         Task DeleteById(string route, int id);
 
     }

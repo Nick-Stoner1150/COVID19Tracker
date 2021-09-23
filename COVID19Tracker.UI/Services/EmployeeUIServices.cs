@@ -29,10 +29,20 @@ namespace COVID19Tracker.UI.Services
             await base.Create<EmployeeCreate>(employeeRoute, employee);
         }
 
+        public async Task EditEmployee(EmployeeEdit employee, int id)
+        {
+            await base.UpdateEntity<EmployeeEdit>(employeeRoute, employee, id);
+        }
         public async Task DeleteEmployee(int id)
         {
             await base.DeleteById(employeeRoute, id);
             
+        }
+
+        public async Task<IEnumerable<EmployeeListItem>> GetVaccinatedByDepartmentId(string route, int departmentID)
+        {
+            var listOfVaccinatedEmployees = await base.GetAllVaccinatedByDepartment<EmployeeListItem>(employeeRoute, departmentID);
+            return listOfVaccinatedEmployees;
         }
     }
 }

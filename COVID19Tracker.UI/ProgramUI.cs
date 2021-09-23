@@ -41,7 +41,7 @@ namespace COVID19Tracker.UI
                         Console.ReadLine();
                         break;
                     case "4":
-                        UpdateEmployee();
+                        await UpdateEmployee();
                         break;
                     case "5":
                         await DeleteEmployee();
@@ -64,7 +64,9 @@ namespace COVID19Tracker.UI
                         GetDepartmentById();
                         break;
                     case "11":
-                        GetVaccinatedByDepartmentId();
+                        IEnumerable<EmployeeListItem> listOfVaccinatedEmployees = await GetVaccinatedByDepartmentId();
+                        DisplayEmployeeListItems(listOfVaccinatedEmployees);
+                        Console.ReadLine();
                         break;
                     case "12":
                         isRunning = false;
@@ -78,9 +80,22 @@ namespace COVID19Tracker.UI
             }
         }
 
-        private void GetVaccinatedByDepartmentId()
+        private async Task<IEnumerable<EmployeeListItem>> GetVaccinatedByDepartmentId()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Which department's vaccination status would you like to see?");
+            int departmentId = int.Parse(Console.ReadLine());
+
+            var listOfemployees = await _employeeUIServices.GetAllVaccinatedByDepartment<EmployeeListItem>("Employee?departmentId=", departmentId);
+            if (listOfemployees is null)
+            {
+                Console.WriteLine("Sorry, something did not go right. Try again!");
+                return null;
+            }
+
+            else
+            {
+                return listOfemployees;
+            }
         }
 
         private void GetDepartmentById()
@@ -210,9 +225,43 @@ namespace COVID19Tracker.UI
 
         }
 
-        private void UpdateEmployee()
+        private async Task UpdateEmployee()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+
+            EmployeeEdit newEmployeeData = new EmployeeEdit();
+
+            Console.WriteLine("PLease enter the Employee Id of the Employee you would like to edit:");
+            int oldEmployeeId = int.Parse(Console.ReadLine());
+            var employeeToEdit = await _employeeUIServices.GetById(oldEmployeeId);
+
+            if(employeeToEdit is null)
+            {
+                Console.WriteLine("No Employee was found by that Employee ID.");
+            }
+
+            else
+            {
+                Console.WriteLine($"You are going to edit {employeeToEdit.FirstName}{employeeToEdit.LastName}. Is that correct? (y/n)");
+                if (GetBoolResponse(Console.ReadLine()))
+                {
+                    Console.WriteLine("Please enter a BadgeID");
+                    newEmployeeData.BadgeId = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Please enter a First Name:");
+                    newEmployeeData.FirstName = Console.ReadLine();
+
+                    Console.WriteLine("Please enter a last name:");
+                    newEmployeeData.LastName = Console.ReadLine();
+
+                    Console.WriteLine("Please enter a Department Id:");
+                    newEmployeeData.DepartmentId = int.Parse(Console.ReadLine());
+
+                    newEmployeeData.ID = oldEmployeeId;
+
+                    await _employeeUIServices.UpdateEntity<EmployeeEdit>("employee/", newEmployeeData, oldEmployeeId);
+                }
+            }
         }
 
         public async Task<EmployeeDetail> GetEmployeeById()
@@ -289,7 +338,7 @@ namespace COVID19Tracker.UI
                               "8. Create a Department\n" +
                               "9. Get all departments\n" +
                               "10. Get specific department\n" +
-                              "11. Show vaccinated by deparment" +
+                              "11. Show vaccinated by deparment\n" +
                               "12. Exit");
         }
 

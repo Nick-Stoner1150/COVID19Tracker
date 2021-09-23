@@ -43,9 +43,27 @@ namespace COVID19Tracker.UI.Services
             return null;
         }
 
+        public async Task UpdateEntity<T>(string route, T content, int id)
+        {
+            await _httpClient.PutAsJsonAsync($"{baseUrl}{route}{id}", content);
+        }
+
         public async Task DeleteById(string route, int id)
         {
             await _httpClient.DeleteAsync($"{baseUrl}{route}{id}");
+        }
+
+        public async Task<IEnumerable<T>> GetAllVaccinatedByDepartment<T>(string route, int parameterId)
+        {
+            var response = await _httpClient.GetAsync($"{baseUrl}{route}{parameterId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                IEnumerable<T> listOfEntities = await response.Content.ReadAsAsync<IEnumerable<T>>();
+                return listOfEntities;
+            }
+
+            return null;
         }
            
     }
