@@ -20,6 +20,7 @@ namespace COVID19Tracker.Services.DepartmentServices
             {
                 DepartmentName = department.DepartmentName,                
                 DepartmentLocation = department.DepartmentLocation
+                
             };
 
             using (var ctx = new ApplicationDbContext())
