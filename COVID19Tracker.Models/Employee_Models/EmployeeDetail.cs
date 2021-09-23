@@ -8,6 +8,7 @@ namespace COVID19Tracker.Models.Employee_Models
 {
     public class EmployeeDetail
     {
+        
         public int ID { get; set; }
         public int BadgeId { get; set; }
         public string FirstName { get; set; }

@@ -111,6 +111,8 @@ namespace COVID19Tracker.Services.Employee_Services
                     .Where(e => e.HealthStatus.Vaccinated && e.DepartmentId == departmentId)
                     .Select(e => new EmployeeListItem
                     {
+                        ID = e.ID,
+                        BadgeId = e.BadgeId,
                         FirstName = e.FirstName,
                         LastName = e.LastName,
                         DepartmentId = e.DepartmentId,

@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace COVID19Tracker.WebApi.Controllers.Employee_Controller
 {
+    [Authorize]
     public class EmployeeController : ApiController
     {
         private EmployeeServices CreateEmployeeService()
