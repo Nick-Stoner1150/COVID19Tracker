@@ -44,7 +44,7 @@ namespace COVID19Tracker.UI
                         UpdateEmployee();
                         break;
                     case "5":
-                        DeleteEmployee();
+                        await DeleteEmployee();
                         break;
                     case "6":
                         await CreateHealthStatus();
@@ -73,7 +73,7 @@ namespace COVID19Tracker.UI
                         Console.WriteLine("Please enter a valid selection");
                         break;
                 }
-
+                Console.Clear();
                 Console.ReadLine();
             }
         }
@@ -188,9 +188,26 @@ namespace COVID19Tracker.UI
             }
         }
 
-        private void DeleteEmployee()
+        private async Task DeleteEmployee()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+
+            Console.WriteLine("Please enter the Employee ID of the employee you wish to delete!");
+            int employeeId = int.Parse(Console.ReadLine());
+
+            var employeeToDelete = await _employeeUIServices.GetById(employeeId);
+
+            if(employeeToDelete is null)
+            {
+                Console.WriteLine("No employee exists with that Employee ID");
+            }
+
+            else
+            {
+                await _employeeUIServices.DeleteById("employee/", employeeId);
+                Console.WriteLine($"You sucessfully deleted {employeeToDelete.FirstName} {employeeToDelete.LastName} from the database!");
+            }
+
         }
 
         private void UpdateEmployee()

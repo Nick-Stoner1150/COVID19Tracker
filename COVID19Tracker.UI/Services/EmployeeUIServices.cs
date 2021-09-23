@@ -28,5 +28,11 @@ namespace COVID19Tracker.UI.Services
         {
             await base.Create<EmployeeCreate>(employeeRoute, employee);
         }
+
+        public async Task DeleteEmployee(int id)
+        {
+            await base.DeleteById(employeeRoute, id);
+            
+        }
     }
 }

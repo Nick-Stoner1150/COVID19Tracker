@@ -15,5 +15,7 @@ namespace COVID19Tracker.UI.Services
 
         Task<IEnumerable<T>> GetAll<T>(string route);
 
+        Task DeleteById(string route, int id);
+
     }
 }

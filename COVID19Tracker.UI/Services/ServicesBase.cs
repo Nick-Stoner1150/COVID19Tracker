@@ -42,6 +42,12 @@ namespace COVID19Tracker.UI.Services
 
             return null;
         }
+
+        public async Task DeleteById(string route, int id)
+        {
+            await _httpClient.DeleteAsync($"{baseUrl}{route}{id}");
+        }
+           
     }
 
 }
