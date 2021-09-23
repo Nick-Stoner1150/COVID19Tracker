@@ -13,6 +13,21 @@ namespace COVID19Tracker.UI.Services
         private readonly HttpClient _httpClient = new HttpClient();
         private const string baseUrl = "https://localhost:44325/api/";
 
+
+        /* public static async Task GetDataWithAuthentication()
+        {
+            var authCredential = Encoding.UTF8.GetBytes("{userTest} : {passTest}");
+
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(authCredential));
+                client.BaseAddress = new Uri($"{baseUrl}")
+            })
+        } */
+    
+    
+
         public async Task Create<T>(string route, T content)
         {
             var response = await _httpClient.PostAsJsonAsync($"{baseUrl}{route}", content);
@@ -32,6 +47,7 @@ namespace COVID19Tracker.UI.Services
 
         public async Task<IEnumerable<T>> GetAll<T>(string route)
         {
+            
             var response = await _httpClient.GetAsync($"{baseUrl}{route}");
 
             if (response.IsSuccessStatusCode)

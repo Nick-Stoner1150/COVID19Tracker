@@ -20,12 +20,13 @@ namespace COVID19Tracker.UI.Services
 
         public async Task<IEnumerable<EmployeeListItem>> GetAllEmployees(string route)
         {
+
             var listOfEmployees = await base.GetAll<EmployeeListItem>(employeeRoute);
             return listOfEmployees;
         }
 
         public async Task CreateEmployee(EmployeeCreate employee)
-        {
+        { 
             await base.Create<EmployeeCreate>(employeeRoute, employee);
         }
 
