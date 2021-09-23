@@ -45,5 +45,10 @@ namespace COVID19Tracker.UI.Services
             var listOfVaccinatedEmployees = await base.GetAllVaccinatedByDepartment<EmployeeListItem>(employeeRoute, departmentID);
             return listOfVaccinatedEmployees;
         }
+
+        public EmployeeUIServices() : base()
+        {
+
+        }
     }
 }
