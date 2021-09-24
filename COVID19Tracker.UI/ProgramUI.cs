@@ -1,4 +1,5 @@
 ﻿using COVID19Tracker.Data;
+using COVID19Tracker.Models.Department_Models;
 using COVID19Tracker.Models.DepartmentModel;
 using COVID19Tracker.Models.Employee_Models;
 using COVID19Tracker.Models.HealthStatus_Models;
@@ -59,10 +60,15 @@ namespace COVID19Tracker.UI
                         await CreateDepartment();
                         break;
                     case "9":
-                        GetAllDepartments();
+                        IEnumerable<DepartmentList> listOfDepartments = await GetAllDepartments();
+                        DisplayDepartmentList(listOfDepartments);
+                        Console.ReadLine();                        
                         break;
                     case "10":
-                        GetDepartmentById();
+                        DepartmentList department = await GetDepartmentById();
+                        DisplayDepartmentList(department);
+                        Console.ReadLine();
+                        
                         break;
                     case "11":
                         IEnumerable<EmployeeListItem> listOfVaccinatedEmployees = await GetVaccinatedByDepartmentId();
@@ -99,14 +105,30 @@ namespace COVID19Tracker.UI
             }
         }
 
-        private void GetDepartmentById()
+        public async Task<DepartmentList> GetDepartmentById()
         {
-            throw new NotImplementedException();
+            int departmentId = int.Parse(Console.ReadLine());
+
+            var department = await _departmentUIServices.GetById(departmentId);
+            if (department is null)
+            {
+                Console.WriteLine("No department exists with that ID");
+                return null;
+            }
+
+            return department;
         }
 
-        private void GetAllDepartments()
+        public async Task<DepartmentList> GetAllDepartments()
         {
-            throw new NotImplementedException();
+            var listOfDepartments = await _departmentUIServices.GetAll<DepartmentList>("department/");
+            if (listOfDepartments is null)
+            {
+                Console.WriteLine("Sorry, internal error...");
+                return null;
+            }
+
+            return listOfDepartments;
         }
 
         private async Task CreateDepartment()
@@ -361,6 +383,16 @@ namespace COVID19Tracker.UI
 
         }
 
-       
+        private void DisplayDepartmentList(IEnumerable<DepartmentList> listDept)
+        {
+            foreach (var item in listDept)
+            {
+                Console.WriteLine($"Department Name: {item.DepartmentName}\n" +
+                              $"Name: {item.DepartmentLocation}\n" +                              
+                              $"************************");
+            }
+        }
+
+
     }
 }
