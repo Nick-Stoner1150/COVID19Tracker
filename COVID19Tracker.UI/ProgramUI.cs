@@ -66,7 +66,7 @@ namespace COVID19Tracker.UI
                         break;
                     case "10":
                         DepartmentList department = await GetDepartmentById();
-                        DisplayDepartmentList(department);
+                        DisplayDepartmentListDetail(department);
                         Console.ReadLine();
                         
                         break;
@@ -119,7 +119,7 @@ namespace COVID19Tracker.UI
             return department;
         }
 
-        public async Task<DepartmentList> GetAllDepartments()
+        public async Task<IEnumerable<DepartmentList>> GetAllDepartments()
         {
             var listOfDepartments = await _departmentUIServices.GetAll<DepartmentList>("department/");
             if (listOfDepartments is null)
@@ -391,6 +391,12 @@ namespace COVID19Tracker.UI
                               $"Name: {item.DepartmentLocation}\n" +                              
                               $"************************");
             }
+        }
+
+        private void DisplayDepartmentListDetail(DepartmentList department)
+        {
+            Console.WriteLine($"Name: {department.DepartmentName}\n" +
+                              $"Location: {department.DepartmentLocation}");
         }
 
 
