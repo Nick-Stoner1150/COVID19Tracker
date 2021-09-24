@@ -88,5 +88,37 @@ namespace COVID19Tracker.Services.HealthStatus_Services
                 return await ctx.SaveChangesAsync() > 0;
             }
         }
+        public async Task<bool> PostAndPut(HealthStatusCreate healthStatusCreate, int id)
+        {
+
+            var entity = new HealthStatus
+            {
+                Vaccinated = healthStatusCreate.Vaccinated,
+                HasCovid = healthStatusCreate.HasCovid,
+                Hospitalized = healthStatusCreate.Hospitalized,
+                Comorbidities = healthStatusCreate.Comorbidities,
+                QuarantinedDate = healthStatusCreate.QuarantinedDate,
+                LastTestedDate = healthStatusCreate.LastTestedDate
+            };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                var oldHealthStatus = await ctx.HealthStatuses.FindAsync(id);
+                if (oldHealthStatus is null)
+                {
+                    return false;
+                }
+
+                oldHealthStatus.Vaccinated = healthStatusCreate.Vaccinated;
+                oldHealthStatus.HasCovid = healthStatusCreate.HasCovid;
+                oldHealthStatus.Hospitalized = healthStatusCreate.Hospitalized;
+                oldHealthStatus.Comorbidities = healthStatusCreate.Comorbidities;
+                oldHealthStatus.QuarantinedDate = healthStatusCreate.QuarantinedDate;
+                oldHealthStatus.LastTestedDate = healthStatusCreate.LastTestedDate;
+
+                ctx.HealthStatuses.Add(entity);
+                return await ctx.SaveChangesAsync() > 0;
+            }
+        }
     }
 }
