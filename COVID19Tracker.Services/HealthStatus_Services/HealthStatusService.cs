@@ -16,6 +16,7 @@ namespace COVID19Tracker.Services.HealthStatus_Services
         {
             var entity = new HealthStatus
             {
+                HealthStatusId = healthStatus.HealthStatusId,
                 Vaccinated = healthStatus.Vaccinated,
                 HasCovid = healthStatus.HasCovid,
                 Hospitalized = healthStatus.Hospitalized,
@@ -40,6 +41,7 @@ namespace COVID19Tracker.Services.HealthStatus_Services
                     return false;
                 }
 
+                oldHealth.HealthStatusId = healthStatus.HealthStatusId;
                 oldHealth.Vaccinated = healthStatus.Vaccinated;
                 oldHealth.HasCovid = healthStatus.HasCovid;
                 oldHealth.Hospitalized = healthStatus.Hospitalized;
